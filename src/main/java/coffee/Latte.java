@@ -13,7 +13,7 @@ public class Latte extends Coffee {
     }
 
     @Override
-    public String brew() {
+    public String makeCoffee() {
         return "";
     }
 

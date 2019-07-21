@@ -1,19 +1,22 @@
 package coffeeMachine;
 
 import coffee.Coffee;
+import coffeeMachine.beantank.BeanTank;
+import coffeeMachine.grinder.Grinder;
+import coffeeMachine.watertank.WaterTank;
 
 import java.util.StringJoiner;
 
 public class CoffeeMachine {
 
-    private WaterTank waterTank = new WaterTank(1000);
+    private WaterTank waterTank = CoffeeMachineComponents.INSTANCE.waterTank;
     private BeanTank beanTank = new BeanTank(250);
-    private Grinder grinder = new Grinder();
+    private Grinder grinder = CoffeeMachineComponents.INSTANCE.grinder;
 
     public String brew(Coffee coffee) {
         StringJoiner result = new StringJoiner("\n");
         result.add(checkPreRequisities(coffee));
-        result.add(coffee.brew());
+        result.add(coffee.makeCoffee());
         return result.toString();
     }
 

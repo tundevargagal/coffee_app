@@ -1,12 +1,13 @@
 package coffeeMachine;
 
+import coffeeMachine.grinder.Grinder;
+import coffeeMachine.watertank.WaterTank;
+
 public enum CoffeeMachineComponents {
 
     INSTANCE;
 
-    private final Grinder grinder = new Grinder();
+    public final WaterTank waterTank = WaterTank.fullTank();
 
-    public Grinder getGrinder() {
-        return this.grinder;
-    }
+    public final Grinder grinder = new Grinder(waterTank);
 }

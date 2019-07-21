@@ -1,6 +1,6 @@
 package coffee;
 
-import coffeeMachine.Grinder;
+import coffeeMachine.grinder.Grinder;
 
 public class Espresso extends Coffee {
 
@@ -14,8 +14,8 @@ public class Espresso extends Coffee {
     }
 
     @Override
-    public String brew() {
-        return grinder.makeCoffee(this);
+    public String makeCoffee() {
+        return grinder.brew(this);
     }
 
     @Override
