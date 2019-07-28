@@ -1,11 +1,15 @@
-package coffeeMachine.watertank;
+package coffeemachine.watertank;
 
 public class WaterTank implements IWaterTank {
-    private int currentWaterLevel;
     private static final int maxLevel = 1000;
+    private int currentWaterLevel;
 
     public WaterTank(final int currentWaterLevel) {
         this.currentWaterLevel = currentWaterLevel;
+    }
+
+    public static WaterTank fullTank() {
+        return new WaterTank(maxLevel);
     }
 
     public int currentWaterLevel() {
@@ -15,9 +19,5 @@ public class WaterTank implements IWaterTank {
     public int getWater(int requiredWater) {
         currentWaterLevel -= requiredWater;
         return currentWaterLevel;
-    }
-
-    public static WaterTank fullTank() {
-        return new WaterTank(maxLevel);
     }
 }

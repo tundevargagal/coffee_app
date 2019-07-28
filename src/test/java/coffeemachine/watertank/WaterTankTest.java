@@ -1,4 +1,4 @@
-package coffeeMachine.watertank;
+package coffeemachine.watertank;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,30 +1,21 @@
 package coffee;
 
 public class Latte extends Coffee {
+    private int coffeeAmount;
+    private int steamMilkAmount;
 
-    private final int requiredBeans = 80;
-
-    private final int requiredMilk = 226;
-
-    private final int requiredWater = 150;
-
-    Latte() {
-
+    public Latte(int coffeeAmount, int steamMilkAmount) {
+        this.coffeeAmount = coffeeAmount;
+        this.steamMilkAmount = steamMilkAmount;
     }
 
     @Override
-    public String makeCoffee() {
-        return "";
+    public int getCoffeeAmount() {
+        return this.coffeeAmount;
     }
 
     @Override
-    public int requiredWater() {
-        return 0;
+    public int getSteamMilkAmount() {
+        return this.steamMilkAmount;
     }
-
-    @Override
-    public int requiredBeans() {
-        return 0;
-    }
-
 }

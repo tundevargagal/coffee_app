@@ -1,6 +1,4 @@
-package coffeeMachine.grinder;
-
-import coffeeMachine.watertank.IWaterTank;
+package coffeemachine.watertank;
 
 public class WaterTankMock implements IWaterTank {
 
@@ -16,7 +14,7 @@ public class WaterTankMock implements IWaterTank {
         return lastWaterRequest = requiredWater;
     }
 
-    boolean wasCalledWithAmountOfWater(int amount) {
-        return lastWaterRequest == amount;
+    public int getLatestWaterRequest() {
+        return lastWaterRequest;
     }
 }

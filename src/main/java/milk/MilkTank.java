@@ -1,8 +1,25 @@
 package milk;
 
-public class MilkTank {
+public class MilkTank implements IMilkTank {
 
-    private int milkLevel;
+    private static int maxMilkLevel = 750;
+    private int currentMilkLevel;
 
+    public MilkTank(int currentMilkLevel) {
+        this.currentMilkLevel = currentMilkLevel;
+    }
 
+    public static MilkTank fullMilkTank() {
+        return new MilkTank(maxMilkLevel);
+    }
+
+    @Override
+    public int currentMilkLevel() {
+        return currentMilkLevel;
+    }
+
+    @Override
+    public int getMilk(int requiredMilk) {
+        return currentMilkLevel -= requiredMilk;
+    }
 }

@@ -1,4 +1,6 @@
-package coffeeType;
+package coffeetype;
 
 public class CoffeeTypeTest {
+
+
 }

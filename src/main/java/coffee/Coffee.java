@@ -2,9 +2,7 @@ package coffee;
 
 public abstract class Coffee {
 
-    public abstract String makeCoffee();
+    public abstract int getCoffeeAmount();
 
-    public abstract int requiredWater();
-
-    public abstract int requiredBeans();
+    public abstract int getSteamMilkAmount();
 }
