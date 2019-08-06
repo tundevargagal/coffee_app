@@ -13,14 +13,14 @@ class GrinderTest {
     void should_get_correct_amount_of_water() {
         WaterTankMock waterTankMock = new WaterTankMock();
         new EspressoType(new Grinder(waterTankMock, new BeanTankMock())).getCoffeeMakingStrategy().makeCoffee();
-        assertThat(waterTankMock.getLatestWaterRequest()).isEqualTo(150);
+        assertThat(waterTankMock.getLatestWaterRequest()).isEqualTo(30);
     }
 
     @Test
     void should_get_correct_amount_of_beans() {
         BeanTankMock beanTankMock = new BeanTankMock();
         new EspressoType(new Grinder(new WaterTankMock(), beanTankMock)).getCoffeeMakingStrategy().makeCoffee();
-        assertThat(beanTankMock.getLatestBeansRequest()).isEqualTo(100);
+        assertThat(beanTankMock.getLatestBeansRequest()).isEqualTo(80);
     }
 
 }

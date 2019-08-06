@@ -1,16 +1,28 @@
 package coffeemachineapp;
 
-import coffee.Coffee;
 import coffeemachine.CoffeeMachine;
-import coffeetype.CoffeeType;
+import console.CoffeeMachineAppConsole;
+import org.beryx.textio.TextTerminal;
 import org.javatuples.Pair;
+
+import java.util.Optional;
 
 public class CoffeeMachineApp {
 
     public static void main(String[] args) {
-
         CoffeeMachine coffeeMachine = new CoffeeMachine();
-        Pair<String, Coffee> coffeeResult = coffeeMachine.makeCoffee(CoffeeType.ESPRESSO);
-        System.out.println(coffeeResult);
+        CoffeeMachineAppConsole coffeeMachineAppConsole = new CoffeeMachineAppConsole();
+        TextTerminal terminal = coffeeMachineAppConsole.getTerminal();
+
+        boolean quit = false;
+
+        while (!quit) {
+            Optional.ofNullable(coffeeMachineAppConsole.askUserForCoffeeType())
+                    .flatMap(coffeeMachine::makeCoffee)
+                    .map(Pair::getValue0)
+                    .map(Object::toString)
+                    .ifPresent(terminal::println);
+        }
+
     }
 }

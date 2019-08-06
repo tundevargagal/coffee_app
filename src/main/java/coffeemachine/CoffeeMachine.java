@@ -8,6 +8,7 @@ import coffeemachine.watertank.IWaterTank;
 import coffeetype.CoffeeType;
 import org.javatuples.Pair;
 
+import java.util.Optional;
 import java.util.StringJoiner;
 
 public class CoffeeMachine {
@@ -16,12 +17,12 @@ public class CoffeeMachine {
     private IBeanTank beanTank = new BeanTank(250);
     private Grinder grinder = CoffeeMachineComponents.INSTANCE.grinder;
 
-    public Pair<String, Coffee> makeCoffee(CoffeeType coffee) {
+    public Optional<Pair<String, Coffee>> makeCoffee(CoffeeType coffee) {
         StringJoiner result = new StringJoiner("\n");
         result.add(checkPreRequisities(coffee));
         Coffee resultCoffee = coffee.getCoffeeMakingStrategy().makeCoffee();
         result.add(String.format("Made coffee with %s amount of coffee and %s amount of milk steam", resultCoffee.getCoffeeAmount(), resultCoffee.getSteamMilkAmount()));
-        return Pair.with(result.toString(), resultCoffee);
+        return Optional.of(Pair.with(result.toString(), resultCoffee));
     }
 
     private String checkPreRequisities(CoffeeType coffee) {

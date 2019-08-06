@@ -1,7 +1,7 @@
 package coffeemachine.steamer;
 
-import milk.Milk;
-import milk.MilkTank;
+import coffee.CoffeeMakingStrategy;
+import milktank.MilkTank;
 
 public class Steamer {
 
@@ -11,7 +11,8 @@ public class Steamer {
         this.milkTank = milkTankRef;
     }
 
-    public int steamMilk(Milk milk) {
-        return milkTank.getMilk(226);
+    public int steamMilk(CoffeeMakingStrategy coffeeMakingStrategy) {
+        milkTank.getMilk(coffeeMakingStrategy.getRequiredMilk());
+        return coffeeMakingStrategy.getRequiredMilk();
     }
 }

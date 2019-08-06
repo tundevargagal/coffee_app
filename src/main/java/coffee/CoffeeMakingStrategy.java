@@ -6,4 +6,6 @@ public interface CoffeeMakingStrategy {
     int getRequiredWater();
 
     int getRequiredBeans();
+
+    int getRequiredMilk();
 }

@@ -4,7 +4,7 @@ import coffeemachine.beantank.BeanTank;
 import coffeemachine.grinder.Grinder;
 import coffeemachine.steamer.Steamer;
 import coffeemachine.watertank.WaterTank;
-import milk.MilkTank;
+import milktank.MilkTank;
 
 public enum CoffeeMachineComponents {
 

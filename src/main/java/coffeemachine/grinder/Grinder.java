@@ -17,6 +17,6 @@ public class Grinder {
     public int brew(CoffeeMakingStrategy coffeeMakingStrategy) {
         waterTank.getWater(coffeeMakingStrategy.getRequiredWater());
         beanTank.getBeans(coffeeMakingStrategy.getRequiredBeans());
-        return coffeeMakingStrategy.getRequiredWater() + (coffeeMakingStrategy.getRequiredBeans() / 100);
+        return coffeeMakingStrategy.getRequiredWater() + (coffeeMakingStrategy.getRequiredBeans() / 10);
     }
 }

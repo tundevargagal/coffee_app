@@ -14,6 +14,6 @@ public class LatteType extends CoffeeType {
 
     @Override
     public CoffeeMakingStrategy getCoffeeMakingStrategy() {
-        return new LatteMakingStrategy(CoffeeMachineComponents.INSTANCE.steamer);
+        return new LatteMakingStrategy(CoffeeMachineComponents.INSTANCE.grinder, CoffeeMachineComponents.INSTANCE.steamer);
     }
 }

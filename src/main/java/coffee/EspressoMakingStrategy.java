@@ -4,8 +4,8 @@ import coffeemachine.grinder.Grinder;
 
 public class EspressoMakingStrategy implements CoffeeMakingStrategy {
     private final Grinder grinder;
-    private int requiredWater = 150;
-    private int requiredBeans = 100;
+    private int requiredWater = 30;
+    private int requiredBeans = 80;
 
     public EspressoMakingStrategy(Grinder grinder) {
         this.grinder = grinder;
@@ -24,5 +24,10 @@ public class EspressoMakingStrategy implements CoffeeMakingStrategy {
     @Override
     public int getRequiredBeans() {
         return this.requiredBeans;
+    }
+
+    @Override
+    public int getRequiredMilk() {
+        return 0;
     }
 }

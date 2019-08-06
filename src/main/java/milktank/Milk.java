@@ -1,4 +1,4 @@
-package milk;
+package milktank;
 
 public enum Milk {
 

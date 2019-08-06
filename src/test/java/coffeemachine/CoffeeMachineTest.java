@@ -3,7 +3,7 @@ package coffeemachine;
 import coffee.Coffee;
 import coffeemachine.beantank.BeanTank;
 import coffeemachine.watertank.WaterTank;
-import coffeetype.CoffeeType;
+import coffeetype.CoffeeTypes;
 import org.javatuples.Pair;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ public class CoffeeMachineTest {
     void should_brew_espresso() {
         WaterTank waterTank = WaterTank.fullTank();
         BeanTank beanTank = BeanTank.fullBeanTank();
-        Pair<String, Coffee> coffeeMakingResult = new CoffeeMachine().makeCoffee(CoffeeType.ESPRESSO);
-        assertThat(coffeeMakingResult.getValue1().getCoffeeAmount()).isEqualTo(151);
+        Pair<String, Coffee> coffeeMakingResult = new CoffeeMachine().makeCoffee(CoffeeTypes.ESPRESSO.getValue()).get();
+        assertThat(coffeeMakingResult.getValue1().getCoffeeAmount()).isEqualTo(38);
     }
 }
