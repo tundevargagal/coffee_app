@@ -1,11 +1,12 @@
 package coffeetype;
 
 import coffee.CoffeeMakingStrategy;
+import coffee.Latte;
 import coffee.LatteMakingStrategy;
 import coffeemachine.CoffeeMachineComponents;
 import coffeemachine.steamer.Steamer;
 
-public class LatteType extends CoffeeType {
+public class LatteType extends CoffeeType<Latte> {
     private Steamer steamer;
 
     public LatteType(Steamer steamer) {
@@ -13,7 +14,7 @@ public class LatteType extends CoffeeType {
     }
 
     @Override
-    public CoffeeMakingStrategy getCoffeeMakingStrategy() {
-        return new LatteMakingStrategy(CoffeeMachineComponents.INSTANCE.grinder, CoffeeMachineComponents.INSTANCE.steamer);
+    public CoffeeMakingStrategy<Latte> getCoffeeMakingStrategy() {
+        return new LatteMakingStrategy(CoffeeMachineComponents.COMPONENTS.grinder, CoffeeMachineComponents.COMPONENTS.steamer);
     }
 }

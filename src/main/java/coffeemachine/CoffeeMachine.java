@@ -1,31 +1,24 @@
 package coffeemachine;
 
 import coffee.Coffee;
-import coffeemachine.beantank.BeanTank;
-import coffeemachine.beantank.IBeanTank;
-import coffeemachine.grinder.Grinder;
-import coffeemachine.watertank.IWaterTank;
+import coffee.CoffeeMakingStrategy;
 import coffeetype.CoffeeType;
 import org.javatuples.Pair;
 
-import java.util.Optional;
 import java.util.StringJoiner;
 
 public class CoffeeMachine {
 
-    private IWaterTank waterTank = CoffeeMachineComponents.INSTANCE.waterTank;
-    private IBeanTank beanTank = new BeanTank(250);
-    private Grinder grinder = CoffeeMachineComponents.INSTANCE.grinder;
-
-    public Optional<Pair<String, Coffee>> makeCoffee(CoffeeType coffee) {
+    public <T extends Coffee> Pair<String, T> makeCoffee(CoffeeType<T> coffeeType) {
         StringJoiner result = new StringJoiner("\n");
-        result.add(checkPreRequisities(coffee));
-        Coffee resultCoffee = coffee.getCoffeeMakingStrategy().makeCoffee();
-        result.add(String.format("Made coffee with %s amount of coffee and %s amount of milk steam", resultCoffee.getCoffeeAmount(), resultCoffee.getSteamMilkAmount()));
-        return Optional.of(Pair.with(result.toString(), resultCoffee));
+        // result.add(checkPreRequisities(coffee));
+        CoffeeMakingStrategy<T> coffeeMakingStrategy = coffeeType.getCoffeeMakingStrategy();
+        T resultCoffee = coffeeMakingStrategy.makeCoffee();
+        result.add(resultCoffee.getDescription());
+        return Pair.with(result.toString(), resultCoffee);
     }
 
-    private String checkPreRequisities(CoffeeType coffee) {
+/*    private String checkPreRequisities(CoffeeType coffee) {
         StringJoiner status = new StringJoiner("\n");
         status.add(checkAvailableWater(coffee));
         status.add(checkAvailableBeans(coffee));
@@ -33,7 +26,7 @@ public class CoffeeMachine {
     }
 
     private String checkAvailableWater(CoffeeType coffee) {
-        if (waterTank.currentWaterLevel() < coffee.getCoffeeMakingStrategy().getRequiredWater()) {
+        if (COMPONENTS.waterTank.currentWaterLevel() < coffee.getCoffeeMakingStrategy().getRequiredWater()) {
             return "Not enough water";
         }
 
@@ -41,10 +34,10 @@ public class CoffeeMachine {
     }
 
     private String checkAvailableBeans(CoffeeType coffee) {
-        if (beanTank.currentBeanTankLevel() < coffee.getCoffeeMakingStrategy().getRequiredBeans()) {
+        if (COMPONENTS.beanTank.currentBeanTankLevel() < coffee.getCoffeeMakingStrategy().getRequiredBeans()) {
             return "Not enough beans";
         }
 
         return "Enough beans available";
-    }
+    }*/
 }

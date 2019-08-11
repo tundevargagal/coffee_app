@@ -1,11 +1,13 @@
 package coffeemachineapp;
 
 import coffeemachine.CoffeeMachine;
+import coffeetype.CoffeeType;
 import console.CoffeeMachineAppConsole;
 import org.beryx.textio.TextTerminal;
 import org.javatuples.Pair;
 
 import java.util.Optional;
+import java.util.function.Function;
 
 public class CoffeeMachineApp {
 
@@ -18,7 +20,7 @@ public class CoffeeMachineApp {
 
         while (!quit) {
             Optional.ofNullable(coffeeMachineAppConsole.askUserForCoffeeType())
-                    .flatMap(coffeeMachine::makeCoffee)
+                    .map((Function<CoffeeType, Pair>) coffeeMachine::makeCoffee)
                     .map(Pair::getValue0)
                     .map(Object::toString)
                     .ifPresent(terminal::println);

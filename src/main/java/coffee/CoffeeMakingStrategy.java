@@ -1,11 +1,13 @@
 package coffee;
 
-public interface CoffeeMakingStrategy {
-    Coffee makeCoffee();
+public interface CoffeeMakingStrategy<T extends Coffee> {
+    T makeCoffee();
 
     int getRequiredWater();
 
     int getRequiredBeans();
 
-    int getRequiredMilk();
+    int getRequiredSteamedMilk();
+
+    int getRequiredFoamedMilk();
 }

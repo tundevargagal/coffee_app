@@ -1,12 +1,14 @@
 package coffee;
 
-public class Latte extends Coffee {
+public class Latte extends Coffee implements HasCoffee, HasSteamedMilk, HasFoamedMilk {
     private int coffeeAmount;
-    private int steamMilkAmount;
+    private int steamedMilkAmount;
+    private int foamedMilkAmount;
 
-    public Latte(int coffeeAmount, int steamMilkAmount) {
+    public Latte(int coffeeAmount, int steamedMilkAmount, int foamedMilkAmount) {
         this.coffeeAmount = coffeeAmount;
-        this.steamMilkAmount = steamMilkAmount;
+        this.steamedMilkAmount = steamedMilkAmount;
+        this.foamedMilkAmount = foamedMilkAmount;
     }
 
     @Override
@@ -15,7 +17,18 @@ public class Latte extends Coffee {
     }
 
     @Override
-    public int getSteamMilkAmount() {
-        return this.steamMilkAmount;
+    public int getSteamedMilkAmount() {
+        return this.steamedMilkAmount;
+    }
+
+
+    @Override
+    public int getFoamedMilkAmount() {
+        return this.foamedMilkAmount;
+    }
+
+    @Override
+    public String getDescription() {
+        return String.format("Made coffee with %s amount of coffee and %s amount of milk steam", this.getCoffeeAmount(), this.getSteamedMilkAmount());
     }
 }

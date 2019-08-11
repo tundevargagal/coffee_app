@@ -1,8 +1,9 @@
 package coffeetype;
 
+import coffee.Coffee;
 import coffee.CoffeeMakingStrategy;
 
-public abstract class CoffeeType {
-    public abstract CoffeeMakingStrategy getCoffeeMakingStrategy();
+public abstract class CoffeeType<T extends Coffee> {
+    public abstract CoffeeMakingStrategy<T> getCoffeeMakingStrategy();
 
 }

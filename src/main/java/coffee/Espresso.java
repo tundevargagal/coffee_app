@@ -1,6 +1,6 @@
 package coffee;
 
-public class Espresso extends Coffee {
+public class Espresso extends Coffee implements HasCoffee {
     private final int coffeeAmount;
 
     public Espresso(int coffeeAmount) {
@@ -17,7 +17,7 @@ public class Espresso extends Coffee {
     }
 
     @Override
-    public int getSteamMilkAmount() {
-        return 0;
+    public String getDescription() {
+        return String.format("Made coffee with %s amount of coffee", this.getCoffeeAmount());
     }
 }

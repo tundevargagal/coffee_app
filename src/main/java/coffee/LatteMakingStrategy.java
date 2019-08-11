@@ -3,13 +3,14 @@ package coffee;
 import coffeemachine.grinder.Grinder;
 import coffeemachine.steamer.Steamer;
 
-public class LatteMakingStrategy implements CoffeeMakingStrategy {
+public class LatteMakingStrategy implements CoffeeMakingStrategy<Latte> {
 
     private Grinder grinder;
     private final Steamer steamer;
     private int requiredWater = 30;
     private int requiredBeans = 80;
-    private int requiredMilk = 220;
+    private int requiredSteamedMilk = 240;
+    private int requiredFoamedMilk = 30;
 
     public LatteMakingStrategy(Grinder grinder, Steamer steamer) {
         this.grinder = grinder;
@@ -17,8 +18,8 @@ public class LatteMakingStrategy implements CoffeeMakingStrategy {
     }
 
     @Override
-    public Coffee makeCoffee() {
-        return new Latte(grinder.brew(this), steamer.steamMilk(this));
+    public Latte makeCoffee() {
+        return new Latte(grinder.brew(this), steamer.steamMilk(this), steamer.foamedMilk(this));
     }
 
     @Override
@@ -32,7 +33,12 @@ public class LatteMakingStrategy implements CoffeeMakingStrategy {
     }
 
     @Override
-    public int getRequiredMilk() {
-        return this.requiredMilk;
+    public int getRequiredSteamedMilk() {
+        return this.requiredSteamedMilk;
+    }
+
+    @Override
+    public int getRequiredFoamedMilk() {
+        return this.requiredFoamedMilk;
     }
 }

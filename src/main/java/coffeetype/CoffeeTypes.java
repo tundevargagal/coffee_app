@@ -4,8 +4,8 @@ import coffeemachine.CoffeeMachineComponents;
 
 public enum CoffeeTypes {
 
-    ESPRESSO(new EspressoType(CoffeeMachineComponents.INSTANCE.grinder)),
-    LATTE(new LatteType(CoffeeMachineComponents.INSTANCE.steamer));
+    ESPRESSO(new EspressoType(CoffeeMachineComponents.COMPONENTS.grinder)),
+    LATTE(new LatteType(CoffeeMachineComponents.COMPONENTS.steamer));
 
     private CoffeeType coffeeType;
 

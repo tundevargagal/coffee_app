@@ -8,7 +8,7 @@ import milktank.MilkTank;
 
 public enum CoffeeMachineComponents {
 
-    INSTANCE;
+    COMPONENTS;
 
     public final WaterTank waterTank = WaterTank.fullTank();
     public final BeanTank beanTank = BeanTank.fullBeanTank();

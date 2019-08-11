@@ -2,7 +2,7 @@ package coffee;
 
 import coffeemachine.grinder.Grinder;
 
-public class EspressoMakingStrategy implements CoffeeMakingStrategy {
+public class EspressoMakingStrategy implements CoffeeMakingStrategy<Espresso> {
     private final Grinder grinder;
     private int requiredWater = 30;
     private int requiredBeans = 80;
@@ -12,7 +12,7 @@ public class EspressoMakingStrategy implements CoffeeMakingStrategy {
     }
 
     @Override
-    public Coffee makeCoffee() {
+    public Espresso makeCoffee() {
         return new Espresso(grinder.brew(this));
     }
 
@@ -27,7 +27,12 @@ public class EspressoMakingStrategy implements CoffeeMakingStrategy {
     }
 
     @Override
-    public int getRequiredMilk() {
+    public int getRequiredSteamedMilk() {
+        return 0;
+    }
+
+    @Override
+    public int getRequiredFoamedMilk() {
         return 0;
     }
 }

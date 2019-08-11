@@ -8,6 +8,6 @@ class CounterFromDbTest {
 
     @Test
     void should_get_water_count() {
-        assertThat(new CounterFromDb().getWaterCount()).isEqualTo(1);
+        assertThat(new CounterFromDb().getWaterCount()).isEqualTo(2);
     }
 }
