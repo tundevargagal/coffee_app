@@ -4,7 +4,7 @@ public class WaterTank implements IWaterTank {
     private static final int maxLevel = 1000;
     private int currentWaterLevel;
 
-    public WaterTank(final int currentWaterLevel) {
+    private WaterTank(final int currentWaterLevel) {
         this.currentWaterLevel = currentWaterLevel;
     }
 

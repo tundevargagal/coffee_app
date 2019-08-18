@@ -4,7 +4,7 @@ public class BeanTank implements IBeanTank {
     private int currentBeanLevel;
     private static final int maxBeanLevel = 250;
 
-    public BeanTank(int currentBeanLevel) {
+    private BeanTank(int currentBeanLevel) {
         this.currentBeanLevel = currentBeanLevel;
     }
 

@@ -1,7 +1,9 @@
 package coffee;
 
+import console.Result;
+
 public interface CoffeeMakingStrategy<T extends Coffee> {
-    T makeCoffee();
+    Result<T> makeCoffee();
 
     int getRequiredWater();
 

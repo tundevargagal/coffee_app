@@ -1,43 +1,27 @@
 package coffeemachine;
 
 import coffee.Coffee;
-import coffee.CoffeeMakingStrategy;
 import coffeetype.CoffeeType;
-import org.javatuples.Pair;
+import console.Result;
 
-import java.util.StringJoiner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CoffeeMachine {
-
-    public <T extends Coffee> Pair<String, T> makeCoffee(CoffeeType<T> coffeeType) {
-        StringJoiner result = new StringJoiner("\n");
-        // result.add(checkPreRequisities(coffee));
-        CoffeeMakingStrategy<T> coffeeMakingStrategy = coffeeType.getCoffeeMakingStrategy();
-        T resultCoffee = coffeeMakingStrategy.makeCoffee();
-        result.add(resultCoffee.getDescription());
-        return Pair.with(result.toString(), resultCoffee);
+    public <T extends Coffee, C extends CoffeeType> Result<T> makeCoffee(CoffeeType<T> coffeeType) {
+        return coffeeType.getCoffeeMakingStrategy().makeCoffee();
     }
 
-/*    private String checkPreRequisities(CoffeeType coffee) {
-        StringJoiner status = new StringJoiner("\n");
-        status.add(checkAvailableWater(coffee));
-        status.add(checkAvailableBeans(coffee));
-        return status.toString();
+    public String getStatus() {
+        return Stream.of("Der Bohnenbehälter ist bei: " + CoffeeMachineComponents.COMPONENTS.beanTank.currentBeanTankLevel(),
+                "Der Wasserbehälter ist bei: " + CoffeeMachineComponents.COMPONENTS.waterTank.currentWaterLevel(),
+                "Der Milchbehälter ist bei: " + CoffeeMachineComponents.COMPONENTS.milkTank.currentMilkLevel(),
+                "Bezüge bis zur Entkalkung: " + CoffeeMachineComponents.COMPONENTS.counter.getWaterCount())
+                .collect(Collectors.joining("\n"));
     }
 
-    private String checkAvailableWater(CoffeeType coffee) {
-        if (COMPONENTS.waterTank.currentWaterLevel() < coffee.getCoffeeMakingStrategy().getRequiredWater()) {
-            return "Not enough water";
-        }
-
-        return "Enough water available";
+    public String maintain() {
+        CoffeeMachineComponents.COMPONENTS.counter.setWaterCount(100);
+        return String.format("%d Bezüge bis zur Entkalkung", CoffeeMachineComponents.COMPONENTS.counter.getWaterCount());
     }
-
-    private String checkAvailableBeans(CoffeeType coffee) {
-        if (COMPONENTS.beanTank.currentBeanTankLevel() < coffee.getCoffeeMakingStrategy().getRequiredBeans()) {
-            return "Not enough beans";
-        }
-
-        return "Enough beans available";
-    }*/
 }

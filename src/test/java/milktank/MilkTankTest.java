@@ -1,6 +1,6 @@
 package milktank;
 
-public class MilkTankTest {
+class MilkTankTest {
 
 
 }

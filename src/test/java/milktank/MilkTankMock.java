@@ -2,10 +2,15 @@ package milktank;
 
 public class MilkTankMock implements IMilkTank {
 
+    private final int requiredMilk;
+
+    public MilkTankMock(int requiredMilk) {
+        this.requiredMilk = requiredMilk;
+    }
 
     @Override
     public int currentMilkLevel() {
-        return 0;
+        return requiredMilk;
     }
 
     @Override

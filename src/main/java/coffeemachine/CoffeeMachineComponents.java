@@ -1,6 +1,8 @@
 package coffeemachine;
 
 import coffeemachine.beantank.BeanTank;
+import coffeemachine.counters.Counter;
+import coffeemachine.counters.CounterFromDb;
 import coffeemachine.grinder.Grinder;
 import coffeemachine.steamer.Steamer;
 import coffeemachine.watertank.WaterTank;
@@ -14,6 +16,8 @@ public enum CoffeeMachineComponents {
     public final BeanTank beanTank = BeanTank.fullBeanTank();
     public final MilkTank milkTank = MilkTank.fullMilkTank();
 
-    public final Grinder grinder = new Grinder(waterTank, beanTank);
+    public final Counter counter = new CounterFromDb();
+
+    public final Grinder grinder = new Grinder(waterTank, beanTank, counter);
     public final Steamer steamer = new Steamer(milkTank);
 }

@@ -2,6 +2,8 @@ package coffeemachine.steamer;
 
 import coffee.CoffeeMakingStrategy;
 import coffee.LatteMakingStrategy;
+import console.NotEnoughMilkError;
+import console.Result;
 import milktank.MilkTank;
 
 public class Steamer {
@@ -12,11 +14,17 @@ public class Steamer {
         this.milkTank = milkTankRef;
     }
 
-    public int steamMilk(CoffeeMakingStrategy coffeeMakingStrategy) {
-        return milkTank.getMilk(coffeeMakingStrategy.getRequiredSteamedMilk());
+    public Result<Integer> steamMilk(CoffeeMakingStrategy coffeeMakingStrategy) {
+        return milkTank.currentMilkLevel() >= coffeeMakingStrategy.getRequiredSteamedMilk() ?
+                Result.success(milkTank.getMilk(coffeeMakingStrategy.getRequiredSteamedMilk())) :
+                Result.error(new NotEnoughMilkError());
+
     }
 
-    public int foamedMilk(LatteMakingStrategy strategy) {
-        return milkTank.getMilk(strategy.getRequiredFoamedMilk());
+    public Result<Integer> foamedMilk(LatteMakingStrategy strategy) {
+        return milkTank.currentMilkLevel() >= strategy.getRequiredFoamedMilk() ?
+                Result.success(milkTank.getMilk(strategy.getRequiredFoamedMilk())) :
+                Result.error(new NotEnoughMilkError());
+
     }
 }

@@ -1,6 +1,6 @@
 package coffeetype;
 
-public class CoffeeTypeTest {
+class CoffeeTypeTest {
 
 
 }

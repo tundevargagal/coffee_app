@@ -1,6 +1,7 @@
 package coffee;
 
 import coffeemachine.grinder.Grinder;
+import console.Result;
 
 public class EspressoMakingStrategy implements CoffeeMakingStrategy<Espresso> {
     private final Grinder grinder;
@@ -12,8 +13,9 @@ public class EspressoMakingStrategy implements CoffeeMakingStrategy<Espresso> {
     }
 
     @Override
-    public Espresso makeCoffee() {
-        return new Espresso(grinder.brew(this));
+    public Result<Espresso> makeCoffee() {
+        return grinder.brew(this)
+                .map(Espresso::new);
     }
 
     @Override

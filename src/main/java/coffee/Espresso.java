@@ -18,6 +18,6 @@ public class Espresso extends Coffee implements HasCoffee {
 
     @Override
     public String getDescription() {
-        return String.format("Made coffee with %s amount of coffee", this.getCoffeeAmount());
+        return String.format("This coffee has %s amount of coffee", this.getCoffeeAmount());
     }
 }

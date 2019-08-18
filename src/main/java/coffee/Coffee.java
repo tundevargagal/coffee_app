@@ -1,5 +1,7 @@
 package coffee;
 
-public abstract class Coffee {
-    public abstract String getDescription();
+import console.MenuActionResult;
+
+public abstract class Coffee implements MenuActionResult {
+
 }

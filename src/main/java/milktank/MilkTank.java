@@ -5,7 +5,7 @@ public class MilkTank implements IMilkTank {
     private static int maxMilkLevel = 750;
     private int currentMilkLevel;
 
-    public MilkTank(int currentMilkLevel) {
+    private MilkTank(int currentMilkLevel) {
         this.currentMilkLevel = currentMilkLevel;
     }
 

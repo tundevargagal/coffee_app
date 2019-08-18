@@ -2,11 +2,16 @@ package coffeemachine.watertank;
 
 public class WaterTankMock implements IWaterTank {
 
+    private final int waterLevel;
     private int lastWaterRequest;
+
+    public WaterTankMock(int waterLevel) {
+        this.waterLevel = waterLevel;
+    }
 
     @Override
     public int currentWaterLevel() {
-        return 0;
+        return waterLevel;
     }
 
     @Override

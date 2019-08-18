@@ -1,6 +1,6 @@
 package coffee;
 
-public interface HasSteamedMilk {
+interface HasSteamedMilk {
 
     int getSteamedMilkAmount();
 }

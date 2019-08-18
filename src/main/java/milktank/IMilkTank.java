@@ -1,6 +1,6 @@
 package milktank;
 
-public interface IMilkTank {
+interface IMilkTank {
 
     int currentMilkLevel();
 
