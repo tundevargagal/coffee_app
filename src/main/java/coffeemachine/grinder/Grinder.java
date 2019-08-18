@@ -6,6 +6,7 @@ import coffeemachine.counters.Counter;
 import coffeemachine.watertank.IWaterTank;
 import console.NotEnoughBeansError;
 import console.NotEnoughWaterError;
+import console.RequiredDescalingError;
 import console.Result;
 
 public class Grinder {
@@ -34,6 +35,10 @@ public class Grinder {
 
     private Result<?> checkWaterLevel(int requiredWater) {
         return waterTank.currentWaterLevel() >= requiredWater ? Result.success(this) : Result.error(new NotEnoughWaterError());
+    }
+
+    private Result<?> checkCounterLevel() {
+        return counter.getWaterCount() >= 1 ? Result.success(this) : Result.error(new RequiredDescalingError());
     }
 
     private Result<Integer> getSuccess(CoffeeMakingStrategy coffeeMakingStrategy) {
