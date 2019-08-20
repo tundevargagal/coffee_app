@@ -1,5 +1,7 @@
 package milktank;
 
+import coffeemachine.milktank.IMilkTank;
+
 public class MilkTankMock implements IMilkTank {
 
     private final int requiredMilk;

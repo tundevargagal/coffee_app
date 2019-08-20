@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CoffeeMachine {
-    public <T extends Coffee, C extends CoffeeType> Result<T> makeCoffee(CoffeeType<T> coffeeType) {
+    public <T extends Coffee> Result<T> makeCoffee(CoffeeType<T> coffeeType) {
         return coffeeType.getCoffeeMakingStrategy().makeCoffee();
     }
 
@@ -21,7 +21,7 @@ public class CoffeeMachine {
     }
 
     public String maintain() {
-        CoffeeMachineComponents.COMPONENTS.counter.setWaterCount(100);
+        CoffeeMachineComponents.COMPONENTS.counter.setWaterCount(10);
         return String.format("%d Bezüge bis zur Entkalkung", CoffeeMachineComponents.COMPONENTS.counter.getWaterCount());
     }
 }

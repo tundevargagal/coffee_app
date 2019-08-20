@@ -1,4 +1,4 @@
-package milktank;
+package coffeemachine.milktank;
 
 public enum Milk {
 

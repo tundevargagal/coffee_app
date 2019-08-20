@@ -4,9 +4,9 @@ import coffeemachine.beantank.BeanTank;
 import coffeemachine.counters.Counter;
 import coffeemachine.counters.CounterFromDb;
 import coffeemachine.grinder.Grinder;
+import coffeemachine.milktank.MilkTank;
 import coffeemachine.steamer.Steamer;
 import coffeemachine.watertank.WaterTank;
-import milktank.MilkTank;
 
 public enum CoffeeMachineComponents {
 

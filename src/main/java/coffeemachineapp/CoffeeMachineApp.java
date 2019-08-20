@@ -9,9 +9,7 @@ class CoffeeMachineApp {
         CoffeeMachine coffeeMachine = new CoffeeMachine();
         CoffeeMachineAppConsole coffeeMachineAppConsole = new CoffeeMachineAppConsole(coffeeMachine);
 
-        boolean quit = false;
-
-        while (!quit) {
+        while (true) {
             coffeeMachineAppConsole.showUserMenu();
         }
 

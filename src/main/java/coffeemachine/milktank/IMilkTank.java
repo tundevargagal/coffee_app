@@ -1,6 +1,6 @@
-package milktank;
+package coffeemachine.milktank;
 
-interface IMilkTank {
+public interface IMilkTank {
 
     int currentMilkLevel();
 

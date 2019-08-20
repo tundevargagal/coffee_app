@@ -21,6 +21,7 @@ public class CoffeeMachineAppConsole {
     public void showUserMenu() {
         MainMenuSelection selection = textIO.newEnumInputReader(MainMenuSelection.class).read("\nBitte wählen Sie eine Option aus");
         MenuActionResult result = selection.getMenuAction().apply(coffeeMachine, this);
+
         Optional.ofNullable(result)
                 .map(MenuActionResult::getDescription)
                 .ifPresent(terminal::println);

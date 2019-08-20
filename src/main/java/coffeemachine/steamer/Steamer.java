@@ -2,9 +2,9 @@ package coffeemachine.steamer;
 
 import coffee.CoffeeMakingStrategy;
 import coffee.LatteMakingStrategy;
+import coffeemachine.milktank.MilkTank;
 import console.NotEnoughMilkError;
 import console.Result;
-import milktank.MilkTank;
 
 public class Steamer {
 

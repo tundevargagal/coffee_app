@@ -26,6 +26,7 @@ public class Grinder {
         beanTank.getBeans(coffeeMakingStrategy.getRequiredBeans());
         return checkWaterLevel(coffeeMakingStrategy.getRequiredWater())
                 .flatMap(x -> checkBeanLevel(coffeeMakingStrategy.getRequiredBeans()))
+                .flatMap(z -> checkCounterLevel())
                 .flatMap(y -> getSuccess(coffeeMakingStrategy));
     }
 

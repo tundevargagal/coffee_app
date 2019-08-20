@@ -1,4 +1,4 @@
-package milktank;
+package coffeemachine.milktank;
 
 public class MilkTank implements IMilkTank {
 

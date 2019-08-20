@@ -11,7 +11,8 @@ public enum MainMenuSelection {
     KAFFEEAUSWAHL("1") {
         @Override
         BiFunction<CoffeeMachine, CoffeeMachineAppConsole, MenuActionResult> getMenuAction() {
-            return (coffeeMachine, console) -> Optional.ofNullable(console.askUserForCoffeeType())
+            return (coffeeMachine, console) ->
+                    Optional.ofNullable(console.askUserForCoffeeType())
                     .map((Function<CoffeeType, Result<? extends MenuActionResult>>) coffeeMachine::makeCoffee)
                     .map(result -> result.isError() ? result.getError() : result.getValue())
                     .get();

@@ -39,7 +39,7 @@ public class Result<T> {
         return Result.success(mapper.apply(value));
     }
 
-    <T2> Result<Pair<T, T2>> zip(Result<T2> t2) {
+    public <T2> Result<Pair<T, T2>> zip(Result<T2> t2) {
         if (this.isSuccess() && t2.isSuccess()) {
             return Result.success(Pair.with(this.value, t2.value));
         } else if (this.isError()) {
@@ -54,8 +54,8 @@ public class Result<T> {
             return Result.success(Triplet.with(this.value, t2.value, t3.value));
         } else if (this.isError()) {
             return Result.error(getError());
-        } else if (this.isError()) {
-            return Result.error(t2.error);
+        } else {
+            this.isError();
         }
         return Result.error(t3.error);
     }

@@ -3,10 +3,10 @@ package coffeemachine;
 import coffee.Espresso;
 import coffee.Latte;
 import coffeemachine.beantank.BeanTank;
+import coffeemachine.milktank.MilkTank;
 import coffeemachine.watertank.WaterTank;
 import coffeetype.CoffeeTypesEnum;
 import console.Result;
-import milktank.MilkTank;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
