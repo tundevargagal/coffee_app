@@ -3,6 +3,6 @@ package console;
 public class NotEnoughBeansError extends Error {
     @Override
     public String getDescription() {
-        return "Not enough beans available";
+        return "Es sind nicht genug Bohnen vorhanden.";
     }
 }
