@@ -3,7 +3,7 @@ package coffee;
 import coffeemachine.grinder.Grinder;
 import console.Result;
 
-public class EspressoMakingStrategy implements CoffeeMakingStrategy<Espresso> {
+public final class EspressoMakingStrategy implements CoffeeMakingStrategy<Espresso> {
     private final Grinder grinder;
     private int requiredWater = 30;
     private int requiredBeans = 80;

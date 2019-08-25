@@ -4,7 +4,7 @@ import coffeemachine.grinder.Grinder;
 import coffeemachine.steamer.Steamer;
 import console.Result;
 
-public class LatteMakingStrategy implements CoffeeMakingStrategy<Latte> {
+public final class LatteMakingStrategy implements CoffeeMakingStrategy<Latte> {
 
     private final Steamer steamer;
     private Grinder grinder;
