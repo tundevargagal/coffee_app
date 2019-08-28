@@ -29,6 +29,6 @@ public class Latte extends Coffee implements HasCoffee, HasSteamedMilk, HasFoame
 
     @Override
     public String getDescription() {
-        return String.format("Dieser Latte beinhaltet %d Kaffeebohnen und %d ml geschäumte Milch", this.getCoffeeAmount(), this.getSteamedMilkAmount());
+        return String.format("Dieser Latte beinhaltet %d ml Kaffee und %d ml geschäumte Milch", this.getCoffeeAmount(), this.getSteamedMilkAmount());
     }
 }

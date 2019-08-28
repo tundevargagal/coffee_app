@@ -22,7 +22,7 @@ public class CounterFromDb implements Counter {
     }
 
     private Connection connect() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/coffeemachine?currentSchema=coffee_schema", null, null);
+        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/coffeemachine?currentSchema=coffee_schema", "java", "kaffee");
     }
 
     private int executeQuery(String SQL) {
