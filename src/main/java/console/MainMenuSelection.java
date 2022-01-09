@@ -31,7 +31,7 @@ public enum MainMenuSelection {
                     .map(status -> (MenuActionResult) () -> status).get();
         }
     },
-    MainMenuSelection("4") {
+    EXIT("4") {
         @Override
         BiFunction<CoffeeMachine, CoffeeMachineAppConsole, MenuActionResult> getMenuAction() {
             return (coffeeMachine, console) -> {
