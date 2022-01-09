@@ -30,6 +30,17 @@ public enum MainMenuSelection {
             return (coffeeMachine, console) -> Optional.ofNullable(coffeeMachine.maintain())
                     .map(status -> (MenuActionResult) () -> status).get();
         }
+    },
+    MainMenuSelection("4") {
+        @Override
+        BiFunction<CoffeeMachine, CoffeeMachineAppConsole, MenuActionResult> getMenuAction() {
+            return (coffeeMachine, console) -> {
+                console.getTerminal().println("Ciao!");
+                System.exit(0);
+                return null;
+            };
+
+        }
     };
 
     private String menuItem;
