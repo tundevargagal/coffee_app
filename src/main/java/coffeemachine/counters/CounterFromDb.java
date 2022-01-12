@@ -17,6 +17,11 @@ public class CounterFromDb implements Counter {
     }
 
     @Override
+    public void resetWaterCount() {
+
+    }
+
+    @Override
     public void reduceCount() {
         setWaterCount(getWaterCount() - 1);
     }

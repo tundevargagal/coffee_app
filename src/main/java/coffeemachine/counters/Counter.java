@@ -7,4 +7,9 @@ public interface Counter {
     void reduceCount();
 
     void setWaterCount(int i);
+
+
+    void resetWaterCount();
+
+
 }

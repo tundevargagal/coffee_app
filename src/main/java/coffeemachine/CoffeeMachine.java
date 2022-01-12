@@ -21,7 +21,7 @@ public class CoffeeMachine {
     }
 
     public String maintain() {
-        CoffeeMachineComponents.COMPONENTS.counter.setWaterCount(10);
+        CoffeeMachineComponents.COMPONENTS.counter.resetWaterCount();
         return String.format("%d Bezüge bis zur Entkalkung", CoffeeMachineComponents.COMPONENTS.counter.getWaterCount());
     }
 }

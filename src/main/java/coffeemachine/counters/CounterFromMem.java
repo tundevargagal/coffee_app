@@ -14,6 +14,12 @@ public class CounterFromMem implements Counter {
     }
 
     @Override
+    public void resetWaterCount() {
+        this.counter = 10;
+    }
+
+
+    @Override
     public void reduceCount() {
         setWaterCount(getWaterCount() - 1);
     }
